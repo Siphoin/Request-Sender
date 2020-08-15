@@ -22,7 +22,7 @@ namespace Request_Sender
             return data;
         }
         /// <summary>
-        /// add element data in dictory with RequestFormElement
+        /// add element data in dictonary with RequestFormElement
         /// </summary>
         /// <param name="formElement">element</param>
         public void Add (RequestFormElement formElement)
