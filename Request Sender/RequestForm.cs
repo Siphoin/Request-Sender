@@ -29,7 +29,11 @@ namespace Request_Sender
         {
             data.Add(formElement.name, formElement.value);
         }
-
+        /// <summary>
+        /// Generate GET URL with dictonary data Example: example.com/?item=value
+        /// </summary>
+        /// <param name="URL">URL for generating</param>
+        /// <returns>GET URL</returns>
         public string GenerateGETRequest (string URL)
         {
             string result = URL + "?";

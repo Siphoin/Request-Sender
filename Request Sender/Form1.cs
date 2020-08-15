@@ -150,6 +150,7 @@ if (control.Name.Contains("Value"))
                         // generating form data
                         RequestFormElement formElement = new RequestFormElement(textBoxesNamesVaritables[i].Text, textBoxesValuesVaritables[i].Text);
                         form.Add(formElement);
+                        formElement.Dispose();
                     }
                 }
             }
@@ -163,8 +164,8 @@ if (control.Name.Contains("Value"))
             var contents = response.Content.ReadAsStringAsync().Result;
            // get echo
             ECHOBox.Text = contents;
+            form.Dispose();
 
-           
 
         }
 
@@ -181,6 +182,7 @@ if (control.Name.Contains("Value"))
                         // generating form data
                         RequestFormElement formElement = new RequestFormElement(textBoxesNamesVaritables[i].Text, textBoxesValuesVaritables[i].Text);
                         form.Add(formElement);
+                        formElement.Dispose();
                     }
                 }
             }
@@ -201,6 +203,7 @@ if (control.Name.Contains("Value"))
                 html = reader.ReadToEnd();
             }
             ECHOBox.Text = html;
+            form.Dispose();
 
         }
         private void  CallPostAsync ()
