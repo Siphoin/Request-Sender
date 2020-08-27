@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -155,7 +156,9 @@ if (control.Name.Contains("Value"))
                 }
             }
             // start sending response
+            Stopwatch sw = new Stopwatch();
             ECHOBox.Text = "WAIT...";
+            sw.Start();
             HttpClient client = new HttpClient();
             var content = new FormUrlEncodedContent(form.GetData());
             var response = client.PostAsync(TargetURLPole.Text, content).Result;
@@ -164,6 +167,8 @@ if (control.Name.Contains("Value"))
             var contents = response.Content.ReadAsStringAsync().Result;
            // get echo
             ECHOBox.Text = contents;
+            sw.Stop();
+            TimeWaitText.Text = "Time milliseconds: " + sw.ElapsedMilliseconds;
             form.Dispose();
 
 
@@ -186,14 +191,29 @@ if (control.Name.Contains("Value"))
                     }
                 }
             }
-            
+
             // start sending response
+            Stopwatch sw = new Stopwatch();
             ECHOBox.Text = "WAIT...";
-            
+            sw.Start();
             string html = string.Empty;
+           
             string url = form.GenerateGETRequest(TargetURLPole.Text);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+
+            HttpWebRequest request = null;
+            try
+            {
+                 request = (HttpWebRequest)WebRequest.Create(url);
+
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("Ошибка отправки запроса: Текст ошибки: " + e.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -202,6 +222,8 @@ if (control.Name.Contains("Value"))
             {
                 html = reader.ReadToEnd();
             }
+            sw.Stop();
+            TimeWaitText.Text = "Time milliseconds: " + sw.ElapsedMilliseconds;
             ECHOBox.Text = html;
             form.Dispose();
 

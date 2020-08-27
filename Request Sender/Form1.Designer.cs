@@ -54,6 +54,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.TargetURLPole = new System.Windows.Forms.TextBox();
             this.ECHOBox = new System.Windows.Forms.TextBox();
+            this.TimeWaitText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // boxRequestTypeList
@@ -260,7 +261,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(309, 15);
+            this.label13.Location = new System.Drawing.Point(373, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 22;
@@ -268,7 +269,7 @@
             // 
             // TargetURLPole
             // 
-            this.TargetURLPole.Location = new System.Drawing.Point(26, 12);
+            this.TargetURLPole.Location = new System.Drawing.Point(90, 6);
             this.TargetURLPole.Name = "TargetURLPole";
             this.TargetURLPole.Size = new System.Drawing.Size(277, 20);
             this.TargetURLPole.TabIndex = 23;
@@ -281,12 +282,22 @@
             this.ECHOBox.TabIndex = 24;
             this.ECHOBox.Text = "ECHO_STRING";
             // 
+            // TimeWaitText
+            // 
+            this.TimeWaitText.AutoSize = true;
+            this.TimeWaitText.ForeColor = System.Drawing.Color.White;
+            this.TimeWaitText.Location = new System.Drawing.Point(373, 505);
+            this.TimeWaitText.Name = "TimeWaitText";
+            this.TimeWaitText.Size = new System.Drawing.Size(0, 13);
+            this.TimeWaitText.TabIndex = 25;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(384, 534);
+            this.ClientSize = new System.Drawing.Size(492, 534);
+            this.Controls.Add(this.TimeWaitText);
             this.Controls.Add(this.ECHOBox);
             this.Controls.Add(this.TargetURLPole);
             this.Controls.Add(this.label13);
@@ -350,6 +361,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TargetURLPole;
         private System.Windows.Forms.TextBox ECHOBox;
+        private System.Windows.Forms.Label TimeWaitText;
     }
 }
 
