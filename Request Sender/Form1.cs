@@ -14,11 +14,12 @@ namespace Request_Sender
         /// </summary>
         ///
         
-        TextBox[] textBoxesNamesVaritables = new TextBox[4];
+       private TextBox[] textBoxesNamesVaritables = new TextBox[4];
         /// <summary>
         /// text boxes values items
         /// </summary>
-        TextBox[] textBoxesValuesVaritables = new TextBox[4];
+       private TextBox[] textBoxesValuesVaritables = new TextBox[4];
+
         public Form1()
         {
             
@@ -49,10 +50,6 @@ if (control.Name.Contains("Value"))
 
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void buttonSendingForm_Click(object sender, EventArgs e)
         {
@@ -72,6 +69,7 @@ if (control.Name.Contains("Value"))
 
           
             int u = 0;
+
             for (int i = 0; i < textBoxesValuesVaritables.Length; i++)
             {
                 if (textBoxesValuesVaritables[i].Text.Length == 0)
@@ -228,10 +226,12 @@ if (control.Name.Contains("Value"))
             form.Dispose();
 
         }
-        private void  CallPostAsync ()
-        {
-             POSTRequest();
-        }
+
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) => Application.Exit();
+
+        private void CallPostAsync() => POSTRequest();
+       
 
     }
 }
