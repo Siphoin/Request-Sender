@@ -12,7 +12,7 @@ namespace Request_Sender
         /// <summary>
         /// dictonary for caching data
         /// </summary>
-        private Dictionary<string, string> data = new Dictionary<string, string>(0);
+        private Dictionary<string, string> _data = new Dictionary<string, string>(0);
         /// <summary>
         /// get the data form
         /// </summary>
@@ -21,14 +21,7 @@ namespace Request_Sender
         {
             return data;
         }
-        /// <summary>
-        /// add element data in dictory with RequestFormElement
-        /// </summary>
-        /// <param name="formElement">element</param>
-        public void Add (RequestFormElement formElement)
-        {
-            data.Add(formElement.name, formElement.value);
-        }
+       
         /// <summary>
         /// Generate GET URL with dictonary data Example: example.com/?item=value
         /// </summary>
@@ -73,8 +66,14 @@ namespace Request_Sender
         /// </summary>
         public void Dispose()
         {
-            data.Clear();
-            data = null;
+            _data.Clear();
+            _data = null;
         }
+        
+         /// <summary>
+        /// add element data in dictory with RequestFormElement
+        /// </summary>
+        /// <param name="formElement">element</param>
+        public void Add (RequestFormElement formElement) =>  _data.Add(formElement.name, formElement.value);
     }
 }
